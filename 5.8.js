@@ -1,11 +1,16 @@
 function lengthOfShortestWord(str) {
 	str = str.split(' ');
-	const min_legnth = str.reduce((min_length = 1, word) => {
-		return (min_length < word.length 
-			? min_length
-			: word.length); 
+	
+	const max_length = str.reduce((max_length = 1, word) => {
+		return (max_length > word.length 
+			? max_length
+			: word.length);
 	})
-	return min_legnth;
+	const longest_array = str.filter(word => {
+		return (max_length === word.length);
+	})
+
+	return longest_array;
 }
 
 console.log("lengthOfShortestWord(Betty bought a bit of butter) => ", lengthOfShortestWord("Betty bought a bit of butter"));
