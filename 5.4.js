@@ -1,11 +1,16 @@
 function toWeirdCase(str) {
-	str_arr = str.split('');
-	for (let i = 0; i < str_arr.length; ++i) {
-		str_arr[i] = i % 2 === 0 
-			? str_arr[i].toUpperCase()
-			: str_arr[i].toLowerCase();
+	const new_str = [];
+	const word_arr = str.split(' ');
+	for (let i = 0; i < word_arr.length; ++i) {
+		new_word = word_arr[i].split('');
+		for (let j = 0; j < word_arr[i].length; j++) {
+			if (j % 2 === 0 ){
+				new_word[j] = new_word[j].toUpperCase();
+			}
+		}
+		new_str.push(new_word.join(''));
 	}
-	return str_arr.join('');
+	return new_str.join(' ');
 }
 
 console.log('toWeirdCase("String") => ', toWeirdCase("String")); //=> returns "StRiNg"
